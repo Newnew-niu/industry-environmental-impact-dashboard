@@ -1,41 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ireland Industry Environmental Dashboard</title>
+  <title>Ireland Industry Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <style>
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      display: flex; 
-      flex-direction: column;
-      align-items: center; 
-      background-color: #f8f9fa;
-      padding: 20px;
-    }
-    #vis { 
-      background-color: white; 
-      padding: 30px; 
-      border-radius: 12px; 
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .header { margin-bottom: 20px; text-align: center; }
-  </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Irish Industry Environmental Impact</h1>
-    <p>Data Source: CSO Ireland | Interactive Dashboard</p>
-  </div>
   <div id="vis"></div>
-
   <script>
-    // 指向你上传到 GitHub 的 json 文件
-    const spec = "visualization.vl.json";
-    vegaEmbed('#vis', spec, {actions: false}).then(result => {
-      console.log("Dashboard loaded!");
-    }).catch(console.warn);
+    vegaEmbed('#vis', 'visualization.vl.json').catch(console.error);
   </script>
 </body>
 </html>
