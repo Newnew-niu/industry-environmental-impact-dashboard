@@ -1,0 +1,450 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Industry Environmental Impact Dashboard",
+    "subtitle": "Interactive: 1. Use Slider (Top) for Year. 2. Click ANY Line, Point, or Bar to highlight across all charts.",
+    "fontSize": 20,
+    "anchor": "start",
+    "offset": 20
+  },
+  "width": 700,
+  "height": 600,
+  "resolve": {
+    "scale": {"color": "independent"},
+    "legend": {"color": "independent"}
+  },
+  "params": [
+    {
+      "name": "year_param",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2019,
+        "max": 2023,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    },
+    {
+      "name": "sector_select",
+      "select": {
+        "type": "point",
+        "fields": ["sector_short"],
+        "on": "click",
+        "toggle": "true"
+      },
+      "views": ["view_trend", "view_scatter", "view_bar"]
+    }
+  ],
+  "hconcat": [
+    {
+      "vconcat": [
+        {
+          "name": "view_trend",
+          "title": {
+            "text": "1. Emissions Intensity Trends (2019-2023)",
+            "subtitle": "Click line to highlight.",
+            "anchor": "start"
+          },
+          "width": 450,
+          "height": 250,
+          "data": {
+            "values": [
+              {"year": 2019, "sector_short": "A - Agriculture", "emissions_intensity": 6.6719},
+              {"year": 2019, "sector_short": "B - Mining", "emissions_intensity": 0.1866},
+              {"year": 2019, "sector_short": "C - Manufacturing", "emissions_intensity": 0.0629},
+              {"year": 2019, "sector_short": "D - Electricity & Gas", "emissions_intensity": 2.9457},
+              {"year": 2019, "sector_short": "E - Water & Waste", "emissions_intensity": 0.8585},
+              {"year": 2019, "sector_short": "F - Construction", "emissions_intensity": 0.0776},
+              {"year": 2019, "sector_short": "G - Wholesale & Retail", "emissions_intensity": 0.0371},
+              {"year": 2019, "sector_short": "H - Transport", "emissions_intensity": 3.2399},
+              {"year": 2019, "sector_short": "I - Accommodation", "emissions_intensity": 0.0402},
+              {"year": 2019, "sector_short": "J - Info & Comm", "emissions_intensity": 0.0024},
+              {"year": 2019, "sector_short": "K - Financial", "emissions_intensity": 0.0023},
+              {"year": 2019, "sector_short": "L - Real Estate", "emissions_intensity": 0.0011},
+              {"year": 2019, "sector_short": "M - Professional", "emissions_intensity": 0.0102},
+              {"year": 2019, "sector_short": "N - Admin Services", "emissions_intensity": 0.0066},
+              {"year": 2019, "sector_short": "O - Public Admin", "emissions_intensity": 0.05},
+              {"year": 2019, "sector_short": "P - Education", "emissions_intensity": 0.0233},
+              {"year": 2019, "sector_short": "Q - Human Health", "emissions_intensity": 0.018},
+              {"year": 2019, "sector_short": "R - Arts & Recreation", "emissions_intensity": 0.0462},
+              {"year": 2019, "sector_short": "S - Other Services", "emissions_intensity": 0.0695},
+              {"year": 2020, "sector_short": "A - Agriculture", "emissions_intensity": 6.0406},
+              {"year": 2020, "sector_short": "B - Mining", "emissions_intensity": 0.1692},
+              {"year": 2020, "sector_short": "C - Manufacturing", "emissions_intensity": 0.0557},
+              {"year": 2020, "sector_short": "D - Electricity & Gas", "emissions_intensity": 2.6199},
+              {"year": 2020, "sector_short": "E - Water & Waste", "emissions_intensity": 0.8975},
+              {"year": 2020, "sector_short": "F - Construction", "emissions_intensity": 0.0912},
+              {"year": 2020, "sector_short": "G - Wholesale & Retail", "emissions_intensity": 0.0341},
+              {"year": 2020, "sector_short": "H - Transport", "emissions_intensity": 2.907},
+              {"year": 2020, "sector_short": "I - Accommodation", "emissions_intensity": 0.0728},
+              {"year": 2020, "sector_short": "J - Info & Comm", "emissions_intensity": 0.0024},
+              {"year": 2020, "sector_short": "K - Financial", "emissions_intensity": 0.0036},
+              {"year": 2020, "sector_short": "L - Real Estate", "emissions_intensity": 0.001},
+              {"year": 2020, "sector_short": "M - Professional", "emissions_intensity": 0.011},
+              {"year": 2020, "sector_short": "N - Admin Services", "emissions_intensity": 0.0061},
+              {"year": 2020, "sector_short": "O - Public Admin", "emissions_intensity": 0.0474},
+              {"year": 2020, "sector_short": "P - Education", "emissions_intensity": 0.0204},
+              {"year": 2020, "sector_short": "Q - Human Health", "emissions_intensity": 0.0187},
+              {"year": 2020, "sector_short": "R - Arts & Recreation", "emissions_intensity": 0.0464},
+              {"year": 2020, "sector_short": "S - Other Services", "emissions_intensity": 0.0552},
+              {"year": 2021, "sector_short": "A - Agriculture", "emissions_intensity": 5.0855},
+              {"year": 2021, "sector_short": "B - Mining", "emissions_intensity": 0.092},
+              {"year": 2021, "sector_short": "C - Manufacturing", "emissions_intensity": 0.0489},
+              {"year": 2021, "sector_short": "D - Electricity & Gas", "emissions_intensity": 2.5817},
+              {"year": 2021, "sector_short": "E - Water & Waste", "emissions_intensity": 0.653},
+              {"year": 2021, "sector_short": "F - Construction", "emissions_intensity": 0.0941},
+              {"year": 2021, "sector_short": "G - Wholesale & Retail", "emissions_intensity": 0.0347},
+              {"year": 2021, "sector_short": "H - Transport", "emissions_intensity": 2.2732},
+              {"year": 2021, "sector_short": "I - Accommodation", "emissions_intensity": 0.0483},
+              {"year": 2021, "sector_short": "J - Info & Comm", "emissions_intensity": 0.002},
+              {"year": 2021, "sector_short": "K - Financial", "emissions_intensity": 0.0024},
+              {"year": 2021, "sector_short": "L - Real Estate", "emissions_intensity": 0.0011},
+              {"year": 2021, "sector_short": "M - Professional", "emissions_intensity": 0.0074},
+              {"year": 2021, "sector_short": "N - Admin Services", "emissions_intensity": 0.0053},
+              {"year": 2021, "sector_short": "O - Public Admin", "emissions_intensity": 0.0432},
+              {"year": 2021, "sector_short": "P - Education", "emissions_intensity": 0.0224},
+              {"year": 2021, "sector_short": "Q - Human Health", "emissions_intensity": 0.0191},
+              {"year": 2021, "sector_short": "R - Arts & Recreation", "emissions_intensity": 0.0393},
+              {"year": 2021, "sector_short": "S - Other Services", "emissions_intensity": 0.0655},
+              {"year": 2022, "sector_short": "A - Agriculture", "emissions_intensity": 3.8353},
+              {"year": 2022, "sector_short": "B - Mining", "emissions_intensity": 0.0713},
+              {"year": 2022, "sector_short": "C - Manufacturing", "emissions_intensity": 0.0373},
+              {"year": 2022, "sector_short": "D - Electricity & Gas", "emissions_intensity": 2.6688},
+              {"year": 2022, "sector_short": "E - Water & Waste", "emissions_intensity": 0.5833},
+              {"year": 2022, "sector_short": "F - Construction", "emissions_intensity": 0.0717},
+              {"year": 2022, "sector_short": "G - Wholesale & Retail", "emissions_intensity": 0.0379},
+              {"year": 2022, "sector_short": "H - Transport", "emissions_intensity": 2.2768},
+              {"year": 2022, "sector_short": "I - Accommodation", "emissions_intensity": 0.0233},
+              {"year": 2022, "sector_short": "J - Info & Comm", "emissions_intensity": 0.0013},
+              {"year": 2022, "sector_short": "K - Financial", "emissions_intensity": 0.0032},
+              {"year": 2022, "sector_short": "L - Real Estate", "emissions_intensity": 0.0014},
+              {"year": 2022, "sector_short": "M - Professional", "emissions_intensity": 0.0083},
+              {"year": 2022, "sector_short": "N - Admin Services", "emissions_intensity": 0.0048},
+              {"year": 2022, "sector_short": "O - Public Admin", "emissions_intensity": 0.0422},
+              {"year": 2022, "sector_short": "P - Education", "emissions_intensity": 0.0223},
+              {"year": 2022, "sector_short": "Q - Human Health", "emissions_intensity": 0.0185},
+              {"year": 2022, "sector_short": "R - Arts & Recreation", "emissions_intensity": 0.0329},
+              {"year": 2022, "sector_short": "S - Other Services", "emissions_intensity": 0.0551},
+              {"year": 2023, "sector_short": "A - Agriculture", "emissions_intensity": 4.6824},
+              {"year": 2023, "sector_short": "B - Mining", "emissions_intensity": 0.0745},
+              {"year": 2023, "sector_short": "C - Manufacturing", "emissions_intensity": 0.0452},
+              {"year": 2023, "sector_short": "D - Electricity & Gas", "emissions_intensity": 2.022},
+              {"year": 2023, "sector_short": "E - Water & Waste", "emissions_intensity": 0.5214},
+              {"year": 2023, "sector_short": "F - Construction", "emissions_intensity": 0.0896},
+              {"year": 2023, "sector_short": "G - Wholesale & Retail", "emissions_intensity": 0.0333},
+              {"year": 2023, "sector_short": "H - Transport", "emissions_intensity": 2.2085},
+              {"year": 2023, "sector_short": "I - Accommodation", "emissions_intensity": 0.0213},
+              {"year": 2023, "sector_short": "J - Info & Comm", "emissions_intensity": 0.0007},
+              {"year": 2023, "sector_short": "K - Financial", "emissions_intensity": 0.0021},
+              {"year": 2023, "sector_short": "L - Real Estate", "emissions_intensity": 0.0012},
+              {"year": 2023, "sector_short": "M - Professional", "emissions_intensity": 0.0058},
+              {"year": 2023, "sector_short": "N - Admin Services", "emissions_intensity": 0.0044},
+              {"year": 2023, "sector_short": "O - Public Admin", "emissions_intensity": 0.0379},
+              {"year": 2023, "sector_short": "P - Education", "emissions_intensity": 0.0198},
+              {"year": 2023, "sector_short": "Q - Human Health", "emissions_intensity": 0.0166},
+              {"year": 2023, "sector_short": "R - Arts & Recreation", "emissions_intensity": 0.0391},
+              {"year": 2023, "sector_short": "S - Other Services", "emissions_intensity": 0.0616}
+            ]
+          },
+          "mark": {"type": "line", "point": {"filled": true, "size": 60}},
+          "encoding": {
+            "x": {"field": "year", "type": "ordinal", "title": "Year"},
+            "y": {"field": "emissions_intensity", "type": "quantitative", "title": "Intensity (kg CO2e/€)"},
+            "color": {"field": "sector_short", "type": "nominal", "title": "Industry", "scale": {"scheme": "tableau20"}},
+            "opacity": {
+              "condition": {"param": "sector_select", "empty": true, "value": 1},
+              "value": 0.1
+            },
+            "strokeWidth": {
+              "condition": {"param": "sector_select", "empty": false, "value": 3},
+              "value": 1
+            },
+            "tooltip": [
+              {"field": "sector_short", "title": "Industry"},
+              {"field": "year", "title": "Year"},
+              {"field": "emissions_intensity", "title": "Intensity", "format": ".4f"}
+            ]
+          }
+        },
+        {
+          "name": "view_scatter",
+          "title": {
+            "text": "2. Economic Output vs. Emissions",
+            "subtitle": "Click Points to highlight. Slider filters Year.",
+            "anchor": "start"
+          },
+          "width": 450,
+          "height": 300,
+          "data": {
+            "values": [
+              {"year": 2019, "sector_short": "A - Agriculture", "emissions_total": 21430.1985, "gva_total": 3212, "emissions_intensity": 6.6719},
+              {"year": 2019, "sector_short": "B - Mining", "emissions_total": 94.0387, "gva_total": 504, "emissions_intensity": 0.1866},
+              {"year": 2019, "sector_short": "C - Manufacturing", "emissions_total": 7308.3851, "gva_total": 116147, "emissions_intensity": 0.0629},
+              {"year": 2019, "sector_short": "D - Electricity & Gas", "emissions_total": 8931.2817, "gva_total": 3032, "emissions_intensity": 2.9457},
+              {"year": 2019, "sector_short": "E - Water & Waste", "emissions_total": 1261.0684, "gva_total": 1469, "emissions_intensity": 0.8585},
+              {"year": 2019, "sector_short": "F - Construction", "emissions_total": 734.4591, "gva_total": 9461, "emissions_intensity": 0.0776},
+              {"year": 2019, "sector_short": "G - Wholesale & Retail", "emissions_total": 918.5473, "gva_total": 24734, "emissions_intensity": 0.0371},
+              {"year": 2019, "sector_short": "H - Transport", "emissions_total": 23084.0937, "gva_total": 7125, "emissions_intensity": 3.2399},
+              {"year": 2019, "sector_short": "I - Accommodation", "emissions_total": 229.4373, "gva_total": 5710, "emissions_intensity": 0.0402},
+              {"year": 2019, "sector_short": "J - Info & Comm", "emissions_total": 124.062, "gva_total": 51171, "emissions_intensity": 0.0024},
+              {"year": 2019, "sector_short": "K - Financial", "emissions_total": 38.9824, "gva_total": 17039, "emissions_intensity": 0.0023},
+              {"year": 2019, "sector_short": "L - Real Estate", "emissions_total": 22.3885, "gva_total": 20317, "emissions_intensity": 0.0011},
+              {"year": 2019, "sector_short": "M - Professional", "emissions_total": 184.2553, "gva_total": 18060, "emissions_intensity": 0.0102},
+              {"year": 2019, "sector_short": "N - Admin Services", "emissions_total": 159.7233, "gva_total": 24270, "emissions_intensity": 0.0066},
+              {"year": 2019, "sector_short": "O - Public Admin", "emissions_total": 480.4501, "gva_total": 9614, "emissions_intensity": 0.05},
+              {"year": 2019, "sector_short": "P - Education", "emissions_total": 234.9636, "gva_total": 10069, "emissions_intensity": 0.0233},
+              {"year": 2019, "sector_short": "Q - Human Health", "emissions_total": 292.981, "gva_total": 16278, "emissions_intensity": 0.018},
+              {"year": 2019, "sector_short": "R - Arts & Recreation", "emissions_total": 124.0727, "gva_total": 2686, "emissions_intensity": 0.0462},
+              {"year": 2019, "sector_short": "S - Other Services", "emissions_total": 129.3405, "gva_total": 1860, "emissions_intensity": 0.0695},
+              {"year": 2020, "sector_short": "A - Agriculture", "emissions_total": 21691.7176, "gva_total": 3591, "emissions_intensity": 6.0406},
+              {"year": 2020, "sector_short": "B - Mining", "emissions_total": 54.3127, "gva_total": 321, "emissions_intensity": 0.1692},
+              {"year": 2020, "sector_short": "C - Manufacturing", "emissions_total": 7204.6266, "gva_total": 129248, "emissions_intensity": 0.0557},
+              {"year": 2020, "sector_short": "D - Electricity & Gas", "emissions_total": 8276.3232, "gva_total": 3159, "emissions_intensity": 2.6199},
+              {"year": 2020, "sector_short": "E - Water & Waste", "emissions_total": 1245.7689, "gva_total": 1388, "emissions_intensity": 0.8975},
+              {"year": 2020, "sector_short": "F - Construction", "emissions_total": 796.0227, "gva_total": 8726, "emissions_intensity": 0.0912},
+              {"year": 2020, "sector_short": "G - Wholesale & Retail", "emissions_total": 893.0517, "gva_total": 26217, "emissions_intensity": 0.0341},
+              {"year": 2020, "sector_short": "H - Transport", "emissions_total": 10863.3764, "gva_total": 3737, "emissions_intensity": 2.907},
+              {"year": 2020, "sector_short": "I - Accommodation", "emissions_total": 206.9204, "gva_total": 2841, "emissions_intensity": 0.0728},
+              {"year": 2020, "sector_short": "J - Info & Comm", "emissions_total": 143.448, "gva_total": 60896, "emissions_intensity": 0.0024},
+              {"year": 2020, "sector_short": "K - Financial", "emissions_total": 58.3153, "gva_total": 16007, "emissions_intensity": 0.0036},
+              {"year": 2020, "sector_short": "L - Real Estate", "emissions_total": 20.7011, "gva_total": 20371, "emissions_intensity": 0.001},
+              {"year": 2020, "sector_short": "M - Professional", "emissions_total": 237.8361, "gva_total": 21642, "emissions_intensity": 0.011},
+              {"year": 2020, "sector_short": "N - Admin Services", "emissions_total": 129.0874, "gva_total": 21241, "emissions_intensity": 0.0061},
+              {"year": 2020, "sector_short": "O - Public Admin", "emissions_total": 480.9047, "gva_total": 10145, "emissions_intensity": 0.0474},
+              {"year": 2020, "sector_short": "P - Education", "emissions_total": 207.9606, "gva_total": 10174, "emissions_intensity": 0.0204},
+              {"year": 2020, "sector_short": "Q - Human Health", "emissions_total": 309.5207, "gva_total": 16530, "emissions_intensity": 0.0187},
+              {"year": 2020, "sector_short": "R - Arts & Recreation", "emissions_total": 99.5247, "gva_total": 2144, "emissions_intensity": 0.0464},
+              {"year": 2020, "sector_short": "S - Other Services", "emissions_total": 82.98, "gva_total": 1502, "emissions_intensity": 0.0552},
+              {"year": 2021, "sector_short": "A - Agriculture", "emissions_total": 22096.6021, "gva_total": 4345, "emissions_intensity": 5.0855},
+              {"year": 2021, "sector_short": "B - Mining", "emissions_total": 41.6033, "gva_total": 452, "emissions_intensity": 0.092},
+              {"year": 2021, "sector_short": "C - Manufacturing", "emissions_total": 7596.5088, "gva_total": 155322, "emissions_intensity": 0.0489},
+              {"year": 2021, "sector_short": "D - Electricity & Gas", "emissions_total": 9823.265, "gva_total": 3805, "emissions_intensity": 2.5817},
+              {"year": 2021, "sector_short": "E - Water & Waste", "emissions_total": 1137.4548, "gva_total": 1742, "emissions_intensity": 0.653},
+              {"year": 2021, "sector_short": "F - Construction", "emissions_total": 960.7781, "gva_total": 10208, "emissions_intensity": 0.0941},
+              {"year": 2021, "sector_short": "G - Wholesale & Retail", "emissions_total": 992.8925, "gva_total": 28648, "emissions_intensity": 0.0347},
+              {"year": 2021, "sector_short": "H - Transport", "emissions_total": 11166.099, "gva_total": 4912, "emissions_intensity": 2.2732},
+              {"year": 2021, "sector_short": "I - Accommodation", "emissions_total": 186.6393, "gva_total": 3861, "emissions_intensity": 0.0483},
+              {"year": 2021, "sector_short": "J - Info & Comm", "emissions_total": 155.6761, "gva_total": 78878, "emissions_intensity": 0.002},
+              {"year": 2021, "sector_short": "K - Financial", "emissions_total": 49.6768, "gva_total": 20365, "emissions_intensity": 0.0024},
+              {"year": 2021, "sector_short": "L - Real Estate", "emissions_total": 24.3705, "gva_total": 22258, "emissions_intensity": 0.0011},
+              {"year": 2021, "sector_short": "M - Professional", "emissions_total": 180.5731, "gva_total": 24390, "emissions_intensity": 0.0074},
+              {"year": 2021, "sector_short": "N - Admin Services", "emissions_total": 109.3349, "gva_total": 20607, "emissions_intensity": 0.0053},
+              {"year": 2021, "sector_short": "O - Public Admin", "emissions_total": 465.1552, "gva_total": 10772, "emissions_intensity": 0.0432},
+              {"year": 2021, "sector_short": "P - Education", "emissions_total": 243.111, "gva_total": 10839, "emissions_intensity": 0.0224},
+              {"year": 2021, "sector_short": "Q - Human Health", "emissions_total": 351.0407, "gva_total": 18414, "emissions_intensity": 0.0191},
+              {"year": 2021, "sector_short": "R - Arts & Recreation", "emissions_total": 101.3258, "gva_total": 2580, "emissions_intensity": 0.0393},
+              {"year": 2021, "sector_short": "S - Other Services", "emissions_total": 107.4659, "gva_total": 1640, "emissions_intensity": 0.0655},
+              {"year": 2022, "sector_short": "A - Agriculture", "emissions_total": 21953.3716, "gva_total": 5724, "emissions_intensity": 3.8353},
+              {"year": 2022, "sector_short": "B - Mining", "emissions_total": 41.2659, "gva_total": 579, "emissions_intensity": 0.0713},
+              {"year": 2022, "sector_short": "C - Manufacturing", "emissions_total": 7220.2332, "gva_total": 193511, "emissions_intensity": 0.0373},
+              {"year": 2022, "sector_short": "D - Electricity & Gas", "emissions_total": 9650.3178, "gva_total": 3616, "emissions_intensity": 2.6688},
+              {"year": 2022, "sector_short": "E - Water & Waste", "emissions_total": 1145.0162, "gva_total": 1963, "emissions_intensity": 0.5833},
+              {"year": 2022, "sector_short": "F - Construction", "emissions_total": 878.4639, "gva_total": 12257, "emissions_intensity": 0.0717},
+              {"year": 2022, "sector_short": "G - Wholesale & Retail", "emissions_total": 1233.5691, "gva_total": 32539, "emissions_intensity": 0.0379},
+              {"year": 2022, "sector_short": "H - Transport", "emissions_total": 19206.9147, "gva_total": 8436, "emissions_intensity": 2.2768},
+              {"year": 2022, "sector_short": "I - Accommodation", "emissions_total": 163.7463, "gva_total": 7016, "emissions_intensity": 0.0233},
+              {"year": 2022, "sector_short": "J - Info & Comm", "emissions_total": 108.5398, "gva_total": 86809, "emissions_intensity": 0.0013},
+              {"year": 2022, "sector_short": "K - Financial", "emissions_total": 56.4552, "gva_total": 17558, "emissions_intensity": 0.0032},
+              {"year": 2022, "sector_short": "L - Real Estate", "emissions_total": 34.9979, "gva_total": 25573, "emissions_intensity": 0.0014},
+              {"year": 2022, "sector_short": "M - Professional", "emissions_total": 238.6924, "gva_total": 28619, "emissions_intensity": 0.0083},
+              {"year": 2022, "sector_short": "N - Admin Services", "emissions_total": 114.0806, "gva_total": 23891, "emissions_intensity": 0.0048},
+              {"year": 2022, "sector_short": "O - Public Admin", "emissions_total": 491.7238, "gva_total": 11646, "emissions_intensity": 0.0422},
+              {"year": 2022, "sector_short": "P - Education", "emissions_total": 259.7336, "gva_total": 11644, "emissions_intensity": 0.0223},
+              {"year": 2022, "sector_short": "Q - Human Health", "emissions_total": 374.8762, "gva_total": 20234, "emissions_intensity": 0.0185},
+              {"year": 2022, "sector_short": "R - Arts & Recreation", "emissions_total": 110.2508, "gva_total": 3347, "emissions_intensity": 0.0329},
+              {"year": 2022, "sector_short": "S - Other Services", "emissions_total": 125.685, "gva_total": 2283, "emissions_intensity": 0.0551},
+              {"year": 2023, "sector_short": "A - Agriculture", "emissions_total": 20911.4343, "gva_total": 4466, "emissions_intensity": 4.6824},
+              {"year": 2023, "sector_short": "B - Mining", "emissions_total": 43.0335, "gva_total": 578, "emissions_intensity": 0.0745},
+              {"year": 2023, "sector_short": "C - Manufacturing", "emissions_total": 6779.087, "gva_total": 150120, "emissions_intensity": 0.0452},
+              {"year": 2023, "sector_short": "D - Electricity & Gas", "emissions_total": 7566.1925, "gva_total": 3742, "emissions_intensity": 2.022},
+              {"year": 2023, "sector_short": "E - Water & Waste", "emissions_total": 1120.4703, "gva_total": 2149, "emissions_intensity": 0.5214},
+              {"year": 2023, "sector_short": "F - Construction", "emissions_total": 1134.1024, "gva_total": 12655, "emissions_intensity": 0.0896},
+              {"year": 2023, "sector_short": "G - Wholesale & Retail", "emissions_total": 1086.4404, "gva_total": 32633, "emissions_intensity": 0.0333},
+              {"year": 2023, "sector_short": "H - Transport", "emissions_total": 21285.704, "gva_total": 9638, "emissions_intensity": 2.2085},
+              {"year": 2023, "sector_short": "I - Accommodation", "emissions_total": 179.2265, "gva_total": 8414, "emissions_intensity": 0.0213},
+              {"year": 2023, "sector_short": "J - Info & Comm", "emissions_total": 63.0933, "gva_total": 95098, "emissions_intensity": 0.0007},
+              {"year": 2023, "sector_short": "K - Financial", "emissions_total": 49.7525, "gva_total": 23862, "emissions_intensity": 0.0021},
+              {"year": 2023, "sector_short": "L - Real Estate", "emissions_total": 35.4342, "gva_total": 30466, "emissions_intensity": 0.0012},
+              {"year": 2023, "sector_short": "M - Professional", "emissions_total": 174.2763, "gva_total": 30252, "emissions_intensity": 0.0058},
+              {"year": 2023, "sector_short": "N - Admin Services", "emissions_total": 115.2513, "gva_total": 26057, "emissions_intensity": 0.0044},
+              {"year": 2023, "sector_short": "O - Public Admin", "emissions_total": 472.763, "gva_total": 12482, "emissions_intensity": 0.0379},
+              {"year": 2023, "sector_short": "P - Education", "emissions_total": 248.9353, "gva_total": 12550, "emissions_intensity": 0.0198},
+              {"year": 2023, "sector_short": "Q - Human Health", "emissions_total": 379.5026, "gva_total": 22870, "emissions_intensity": 0.0166},
+              {"year": 2023, "sector_short": "R - Arts & Recreation", "emissions_total": 139.6827, "gva_total": 3575, "emissions_intensity": 0.0391},
+              {"year": 2023, "sector_short": "S - Other Services", "emissions_total": 141.3808, "gva_total": 2295, "emissions_intensity": 0.0616}
+            ]
+          },
+          "transform": [{"filter": "datum.year == year_param"}],
+          "mark": {"type": "circle", "opacity": 0.8, "stroke": "white"},
+          "encoding": {
+            "x": {
+              "field": "gva_total",
+              "type": "quantitative",
+              "title": "GVA (€ Million)",
+              "scale": {"type": "log"}
+            },
+            "y": {
+              "field": "emissions_total",
+              "type": "quantitative",
+              "title": "Emissions (kt CO2eq)",
+              "scale": {"type": "log"}
+            },
+            "size": {
+              "field": "emissions_intensity",
+              "type": "quantitative",
+              "title": "Intensity (kg/€)",
+              "scale": {"range": [50, 1000]},
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "title": "Intensity (kg/€)",
+                "values": [1, 2, 3, 4],
+                "padding": 10
+              }
+            },
+            "color": {
+              "field": "sector_short",
+              "type": "nominal",
+              "scale": {"scheme": "tableau20"},
+              "legend": null
+            },
+            "opacity": {
+              "condition": {
+                "param": "sector_select",
+                "empty": true,
+                "value": 1
+              },
+              "value": 0.1
+            },
+            "tooltip": [
+              {"field": "sector_short", "title": "Industry"},
+              {"field": "gva_total", "title": "GVA", "format": ","},
+              {"field": "emissions_total", "title": "Emissions", "format": ","}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "view_bar",
+      "title": {
+        "text": "3. 2023 Greenhouse Gas Structure",
+        "subtitle": "Click bar segments to highlight.",
+        "anchor": "start"
+      },
+      "width": 350,
+      "height": 620,
+      "data": {
+        "values": [
+          {"sector_short": "A - Agriculture", "gas_type": "CO2", "value": 1541},
+          {"sector_short": "A - Agriculture", "gas_type": "Methane (CH4)", "value": 14929},
+          {"sector_short": "A - Agriculture", "gas_type": "Nitrous Oxide (N2O)", "value": 4434},
+          {"sector_short": "B - Mining", "gas_type": "CO2", "value": 23},
+          {"sector_short": "B - Mining", "gas_type": "Methane (CH4)", "value": 19},
+          {"sector_short": "C - Manufacturing", "gas_type": "CO2", "value": 6622},
+          {"sector_short": "C - Manufacturing", "gas_type": "Methane (CH4)", "value": 15},
+          {"sector_short": "C - Manufacturing", "gas_type": "Nitrous Oxide (N2O)", "value": 29},
+          {"sector_short": "C - Manufacturing", "gas_type": "F-Gases", "value": 70},
+          {"sector_short": "D - Electricity & Gas", "gas_type": "CO2", "value": 7391},
+          {"sector_short": "D - Electricity & Gas", "gas_type": "Methane (CH4)", "value": 80},
+          {"sector_short": "D - Electricity & Gas", "gas_type": "Nitrous Oxide (N2O)", "value": 91},
+          {"sector_short": "E - Water & Waste", "gas_type": "CO2", "value": 150},
+          {"sector_short": "E - Water & Waste", "gas_type": "Methane (CH4)", "value": 690},
+          {"sector_short": "E - Water & Waste", "gas_type": "Nitrous Oxide (N2O)", "value": 119},
+          {"sector_short": "E - Water & Waste", "gas_type": "F-Gases", "value": 158},
+          {"sector_short": "F - Construction", "gas_type": "CO2", "value": 1106},
+          {"sector_short": "F - Construction", "gas_type": "Nitrous Oxide (N2O)", "value": 11},
+          {"sector_short": "F - Construction", "gas_type": "F-Gases", "value": 15},
+          {"sector_short": "G - Wholesale & Retail", "gas_type": "CO2", "value": 949},
+          {"sector_short": "G - Wholesale & Retail", "gas_type": "F-Gases", "value": 126},
+          {"sector_short": "G - Wholesale & Retail", "gas_type": "Nitrous Oxide (N2O)", "value": 10},
+          {"sector_short": "H - Transport", "gas_type": "CO2", "value": 21086},
+          {"sector_short": "H - Transport", "gas_type": "Methane (CH4)", "value": 11},
+          {"sector_short": "H - Transport", "gas_type": "Nitrous Oxide (N2O)", "value": 170},
+          {"sector_short": "H - Transport", "gas_type": "F-Gases", "value": 17},
+          {"sector_short": "I - Accommodation", "gas_type": "CO2", "value": 173},
+          {"sector_short": "I - Accommodation", "gas_type": "F-Gases", "value": 3},
+          {"sector_short": "J - Info & Comm", "gas_type": "CO2", "value": 62},
+          {"sector_short": "J - Info & Comm", "gas_type": "Nitrous Oxide (N2O)", "value": 0.5},
+          {"sector_short": "K - Financial", "gas_type": "CO2", "value": 48},
+          {"sector_short": "K - Financial", "gas_type": "F-Gases", "value": 0.6},
+          {"sector_short": "L - Real Estate", "gas_type": "CO2", "value": 34},
+          {"sector_short": "M - Professional", "gas_type": "CO2", "value": 170},
+          {"sector_short": "M - Professional", "gas_type": "F-Gases", "value": 1.6},
+          {"sector_short": "N - Admin Services", "gas_type": "CO2", "value": 109},
+          {"sector_short": "N - Admin Services", "gas_type": "F-Gases", "value": 4},
+          {"sector_short": "O - Public Admin", "gas_type": "CO2", "value": 455},
+          {"sector_short": "O - Public Admin", "gas_type": "F-Gases", "value": 9},
+          {"sector_short": "P - Education", "gas_type": "CO2", "value": 246},
+          {"sector_short": "P - Education", "gas_type": "Methane (CH4)", "value": 1.8},
+          {"sector_short": "Q - Human Health", "gas_type": "CO2", "value": 333},
+          {"sector_short": "Q - Human Health", "gas_type": "Nitrous Oxide (N2O)", "value": 43},
+          {"sector_short": "Q - Human Health", "gas_type": "F-Gases", "value": 0.9},
+          {"sector_short": "R - Arts & Recreation", "gas_type": "CO2", "value": 138},
+          {"sector_short": "R - Arts & Recreation", "gas_type": "Nitrous Oxide (N2O)", "value": 0.5},
+          {"sector_short": "S - Other Services", "gas_type": "CO2", "value": 139},
+          {"sector_short": "S - Other Services", "gas_type": "F-Gases", "value": 0.5}
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.gas_type === 'CO2' ? 'CO2 (CO2e)' : datum.gas_type === 'Methane (CH4)' ? 'CH4 (CO2e)' : datum.gas_type === 'Nitrous Oxide (N2O)' ? 'N2O (CO2e)' : 'HFCs (CO2e)'",
+          "as": "gas_label"
+        },
+        {
+          "calculate": "datum.gas_type === 'CO2' ? 0 : datum.gas_type === 'Methane (CH4)' ? 1 : datum.gas_type === 'Nitrous Oxide (N2O)' ? 2 : 3",
+          "as": "stack_order"
+        },
+        {
+          "joinaggregate": [{"op": "sum", "field": "value", "as": "sector_total"}],
+          "groupby": ["sector_short"]
+        },
+        {
+          "calculate": "(datum.value / datum.sector_total) * 100",
+          "as": "percentage"
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "sector_short",
+          "type": "nominal",
+          "title": null,
+          "axis": {"labelFontSize": 11, "labelLimit": 300}
+        },
+        "x": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Gas Proportion (%)",
+          "stack": "normalize"
+        },
+        "color": {
+          "field": "gas_label",
+          "type": "nominal",
+          "title": "Gas Type",
+          "scale": {
+            "domain": ["CO2 (CO2e)", "CH4 (CO2e)", "N2O (CO2e)", "HFCs (CO2e)"],
+            "range": ["#AED6F1", "#FAD7A0", "#A2D9CE", "#F5B7B1"]
+          },
+          "legend": {"orient": "right", "title": "Gas Type (CO2e)"}
+        },
+        "order": {"field": "stack_order", "type": "quantitative"},
+        "opacity": {
+          "condition": {
+            "param": "sector_select",
+            "empty": true,
+            "value": 1
+          },
+          "value": 0.1
+        },
+        "tooltip": [
+          {"field": "sector_short", "title": "Sector"},
+          {"field": "gas_label", "title": "Gas"},
+          {"field": "percentage", "title": "Share %", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
