@@ -7,9 +7,30 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; background-color: #f6f8fa; margin: 0; padding: 40px; }
-    #vis { width: 900px; height: 650px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-    .header { margin-bottom: 30px; text-align: center; color: #2c3e50; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: white;
+    }
+    .header {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    #vis {
+      width: 900px;
+      height: 650px;
+      background: white;
+      border: none;
+      outline: none;
+      padding: 0;
+      border-radius: 0;
+    }
   </style>
 </head>
 <body>
@@ -19,7 +40,7 @@
   </div>
   <div id="vis"></div>
   <script>
-    vegaEmbed('#vis', 'visualization.vl.json', {actions: false}).catch(console.error);
+    vegaEmbed('#vis', 'visualization.vl.json', {actions: false, config: {axis: {grid: false}}}).catch(console.error);
   </script>
 </body>
 </html>
